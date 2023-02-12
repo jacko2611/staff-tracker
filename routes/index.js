@@ -7,7 +7,7 @@ const connection = mysql.createConnection ({
     host: "localhost",
     port: 3001,
     user: "root",
-    password: "",
+    password: "obladioblada123",
     database: "employees_db"
 });
 
@@ -21,13 +21,13 @@ connection.connect(function(err) {
 })
 
 // Creating a function to prompt the user with questions
-const questions = (staff) => {
+const questions = 
     inquirer
         .prompt([
             {
                 type: 'list',
                 name: 'staff',
-                message: 'What would you like to do? (Use arrow keys to move up and down)',
+                message: 'What would you like to do?',
                 choices: [
                     "View All Employees" ,
                     "Add Employee" , 
@@ -43,8 +43,7 @@ const questions = (staff) => {
                 ]
             }
         ])
-}
-then(function(answers) {
+.then(function(answers) {
     switch(answers.action) {
         case "View All Employees":
             viewAllEmployees();
