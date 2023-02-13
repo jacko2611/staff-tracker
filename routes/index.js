@@ -2,10 +2,16 @@
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
 
+const answers = [];
+
+function questions(answers) {
+//   console.log(`You selected: ${answers.action}`);
+}
+
 // Creating a connection to the database
 const connection = mysql.createConnection ({
     host: "localhost",
-    port: 3001,
+    port: 3306,
     user: "root",
     password: "obladioblada123",
     database: "employees_db"
@@ -20,8 +26,10 @@ connection.connect(function(err) {
     console.log(`Connected as id ${connection.threadId}`);
 })
 
+console.log(`\x1b[32mWelcome to the Staff Portal!\x1b[0m`);
+
 // Creating a function to prompt the user with questions
-const questions = 
+const userQuestions = 
     inquirer
         .prompt([
             {
@@ -44,7 +52,7 @@ const questions =
             }
         ])
 .then(function(answers) {
-    switch(answers.action) {
+    switch(answers.staff) {
         case "View All Employees":
             viewAllEmployees();
             break;
@@ -94,12 +102,12 @@ const questions =
 
 // Creating a function to view all employees
 function viewAllEmployees() {
-    connection.query("SELECT * FROM employee", function(err, res) {
+let query = "SELECT * FROM employee";
+    connection.query(query, function(err, res) {
         if (err) throw err;
-        console.table(res);
-        questions();
-        init();
+        console.log(res);
     });
+    init();
 }
 
 // Creating a function to add an employee
