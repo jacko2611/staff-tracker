@@ -1,7 +1,8 @@
 # staff-tracker
 https://github.com/www.github.com/jacko2611/staff-tracker
 ## Description
-staff-tracker is a CLI application that allows a user to assess all the employees, roles, role ids, salaries and managers contained within their staff database. 
+staff-tracker is a CLI application that allows a user to assess all the employees, roles, role ids, salaries and managers contained within their staff database. A link to a walkthrough video is posted below:
+https://drive.google.com/file/d/1_s_2eJr2nycAsJ26wzD5rC_YI74ALPHC/view
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
