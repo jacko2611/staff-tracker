@@ -378,12 +378,3 @@ function addDepartment() {
         init();
 }
 
-// // Creating a function to initialize the application
-// function init() {
-//     // connection.query("SELECT * FROM employee", function(err, res) {
-//     //     if (err) throw err;
-//     //     console.table(res);
-//         userQuestions;
-//     //});
-// }
-
