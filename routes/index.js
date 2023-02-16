@@ -141,7 +141,7 @@ function init() {
             break;
   
           case "Update Employee Manager":
-            searchByManager();
+            updateEmployeeManager();
             break;
   
           case "Delete Employee":
@@ -232,8 +232,8 @@ function updateEmployeeRole() {
                 name: 'role_id',
                 message: 'What is the new role ID of the employee?'
             }
-        ]);
-        then(function(answers) {
+        ])
+        .then(function(answers) {
             connection.query("UPDATE employee SET role_id = ? WHERE id = ?", [answers.role_id, answers.id], function(err, res) {
                 if (err) throw err;
                 console.table(res);
