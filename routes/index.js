@@ -51,61 +51,134 @@ const userQuestions =
                 ]
             }
         ])
-.then(function(answers) {
-    switch(answers.staff) {
-        case "View All Employees":
+// .then(function(answers) {
+//     switch(answers.staff) {
+//         case "View All Employees":
+//             viewAllEmployees();
+//             break;
+        
+//         case "Add Employee":
+//             addEmployee();
+//             break;
+
+//         case "Update Employee Role":
+//             updateEmployeeRole();
+//             break;
+
+//         case "Search for Employee by Manager":
+//             searchByManager();
+//             break;
+
+//         case "Update Employee Manager":
+//             searchByManager();
+//             break;
+
+//         case "Delete Employee":
+//             deleteEmployee();
+//             break;
+            
+//         case "View All Roles":
+//             viewAllRoles();
+//             break;
+
+//         case "Add Role":
+//             addRole();
+//             break;
+
+//         case "View All Departments":
+//             viewAllDepartments();
+//             break;
+
+//         case "Add Department":
+//             addDepartment();
+//             break;
+
+//         case "Quit":
+//             connection.end();
+//             break;
+//     }
+
+// });
+
+function init() {
+    inquirer
+      .prompt([
+        {
+          type: 'list',
+          name: 'staff',
+          message: 'What would you like to do?',
+          choices: [
+            "View All Employees",
+            "Add Employee",
+            "Update Employee Role",
+            "Search for Employee by Manager",
+            "Update Employee Manager",
+            "Delete Employee",
+            "View All Roles",
+            "Add Role",
+            "View All Departments",
+            "Add Department",
+            "Quit"
+          ]
+        }
+      ])
+      .then(function(answers) {
+        switch (answers.staff) {
+          case "View All Employees":
             viewAllEmployees();
             break;
-        
-        case "Add Employee":
+  
+          case "Add Employee":
             addEmployee();
             break;
-
-        case "Update Employee Role":
+  
+          case "Update Employee Role":
             updateEmployeeRole();
             break;
-
-        case "Search for Employee by Manager":
+  
+          case "Search for Employee by Manager":
             searchByManager();
             break;
-
-        case "Update Employee Manager":
+  
+          case "Update Employee Manager":
             searchByManager();
             break;
-
-        case "Delete Employee":
+  
+          case "Delete Employee":
             deleteEmployee();
             break;
-            
-        case "View All Roles":
+  
+          case "View All Roles":
             viewAllRoles();
             break;
-
-        case "Add Role":
+  
+          case "Add Role":
             addRole();
             break;
-
-        case "View All Departments":
+  
+          case "View All Departments":
             viewAllDepartments();
             break;
-
-        case "Add Department":
+  
+          case "Add Department":
             addDepartment();
             break;
-
-        case "Quit":
+  
+          case "Quit":
             connection.end();
             break;
-    }
+        }
+      });
+  }
+  init();
 
-});
 
 // Creating a function to view all employees
 function viewAllEmployees() {
 let query = "SELECT * FROM employee";
     connection.query(query, function(err, res) {
         if (err) throw err;
-        console.log(res);
+        console.table(res);
     });
     init();
 }
@@ -305,11 +378,12 @@ function addDepartment() {
         init();
 }
 
-// Creating a function to initialize the application
-function init() {
-    connection.query("SELECT * FROM employee", function(err, res) {
-        if (err) throw err;
-        console.table(res);
-        questions();
-    });
-}
+// // Creating a function to initialize the application
+// function init() {
+//     // connection.query("SELECT * FROM employee", function(err, res) {
+//     //     if (err) throw err;
+//     //     console.table(res);
+//         userQuestions;
+//     //});
+// }
+
